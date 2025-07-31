@@ -1,0 +1,78 @@
+pull_request_rules:
+  # Auto-merge rule for develop to main
+  - name: automatic merge from develop to main
+    conditions:
+      - base=main
+      - head=develop
+      - check-success=build
+      - check-success=test
+      - "#approved-reviews-by>=1"
+      - "#changes-requested-reviews-by=0"
+    actions:
+      merge:
+        method: merge
+
+  # Auto-merge for feature branches to develop
+  - name: automatic merge to develop
+    conditions:
+      - base=develop
+      - check-success=build
+      - check-success=test
+      - "#approved-reviews-by>=1"
+    actions:
+      merge:
+        method: squash
+
+  # Auto-merge for small fixes
+  - name: automatic merge for bug fixes
+    conditions:
+      - base=main
+      - label=bugfix
+      - check-success=build
+      - check-success=test
+      - "#approved-reviews-by>=1"
+    actions:
+      merge:
+        method: squash
+
+  # Add labels based on file changes
+  - name: label selenium tests
+    conditions:
+      - files~=^src/test/java/.*\.java$
+    actions:
+      label:
+        add:
+          - selenium-tests
+
+  - name: label config changes
+    conditions:
+      - files~=^(pom\.xml|\.github/.*)$
+    actions:
+      label:
+        add:
+          - configuration
+
+  # Delete head branch after merge
+  - name: delete head branch after merge
+    conditions:
+      - merged
+      - head!=develop
+      - head!=main
+    actions:
+      delete_head_branch: {}
+
+  # Draft PR handling
+  - name: comment on draft PRs
+    conditions:
+      - draft
+    actions:
+      comment:
+        message: |
+          Thanks for the draft PR! 🚀
+          This will be automatically processed once you mark it as ready for review.
+
+queue_rules:
+  - name: default
+    conditions:
+      - check-success=build
+      - check-success=test
