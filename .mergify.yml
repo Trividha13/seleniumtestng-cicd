@@ -12,8 +12,7 @@ pull_request_rules:
       merge:
         method: merge
 
-  
-  # Auto-merge for feature branches to develop
+  # Auto-merge for feature branches to develop (temporarily without approval)
   - name: automatic merge to develop
     conditions:
       - base=develop
