@@ -1,5 +1,9 @@
 package com.example.selenium;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.SQLException;
 import javax.xml.parsers.*;
 import org.w3c.dom.Document;
 import java.io.*;

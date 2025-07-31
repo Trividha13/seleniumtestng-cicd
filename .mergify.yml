@@ -11,12 +11,11 @@ pull_request_rules:
       merge:
         method: merge
         
-  # Auto-merge for feature branches to develop (NO APPROVAL REQUIRED FOR TESTING)
+  # Auto-merge for feature branches to develop (NO APPROVAL FOR TESTING)
   - name: automatic merge to develop
     conditions:
       - base=develop
       - check-success=Selenium TestNG CI with Security Scanning / build-and-test
-      # Approval requirement completely removed for testing Mergify
     actions:
       merge:
         method: squash
