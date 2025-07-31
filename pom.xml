@@ -47,44 +47,44 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- 🔥 CRITICAL VULNERABILITIES FOR AMPLIFY TESTING -->
+        <!--  CRITICAL VULNERABILITIES FOR AMPLIFY TESTING -->
 
-        <!-- 🔥 CVE-2021-44228 - Log4Shell (CVSS 10.0) -->
+        <!--  CVE-2021-44228 - Log4Shell (CVSS 10.0) -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.14.1</version>
         </dependency>
 
-        <!-- 🔥 CVE-2022-22965 - Spring4Shell (CVSS 9.8) -->
+        <!--  CVE-2022-22965 - Spring4Shell (CVSS 9.8) -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>5.3.17</version>
         </dependency>
 
-        <!-- 🔥 CVE-2018-7489 - Jackson Databind RCE (CVSS 9.8) -->
+        <!--  CVE-2018-7489 - Jackson Databind RCE (CVSS 9.8) -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.9.8</version>
         </dependency>
 
-        <!-- 🔥 CVE-2015-6420 - Commons Collections RCE -->
+        <!--  CVE-2015-6420 - Commons Collections RCE -->
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>3.2.1</version>
         </dependency>
 
-        <!-- 🔥 CVE-2016-1000031 - Commons FileUpload -->
+        <!--  CVE-2016-1000031 - Commons FileUpload -->
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.3.1</version>
         </dependency>
 
-        <!-- 🔥 CVE-2021-37137 - Netty (CVSS 7.5) -->
+        <!--  CVE-2021-37137 - Netty (CVSS 7.5) -->
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-codec-http</artifactId>
