@@ -11,18 +11,18 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-
-  # Auto-merge for feature branches to develop (temporarily without approval)
+        
+  # Auto-merge for feature branches to develop (NO APPROVAL REQUIRED FOR TESTING)
   - name: automatic merge to develop
     conditions:
       - base=develop
       - check-success=build
       - check-success=test
-      # - "#approved-reviews-by>=1"  # Temporarily disabled for testing
+      # Approval requirement completely removed for testing Mergify
     actions:
       merge:
         method: squash
-
+        
   # Auto-merge for small fixes
   - name: automatic merge for bug fixes
     conditions:
@@ -34,7 +34,7 @@ pull_request_rules:
     actions:
       merge:
         method: squash
-
+        
   # Add labels based on file changes
   - name: label selenium tests
     conditions:
@@ -43,7 +43,7 @@ pull_request_rules:
       label:
         add:
           - selenium-tests
-
+          
   - name: label config changes
     conditions:
       - files~=^(pom\.xml|\.github/.*)$
@@ -51,7 +51,7 @@ pull_request_rules:
       label:
         add:
           - configuration
-
+          
   # Delete head branch after merge
   - name: delete head branch after merge
     conditions:
@@ -60,7 +60,7 @@ pull_request_rules:
       - head!=main
     actions:
       delete_head_branch: {}
-
+      
   # Draft PR handling
   - name: comment on draft PRs
     conditions:
