@@ -4,8 +4,7 @@ pull_request_rules:
     conditions:
       - base=main
       - head=develop
-      - check-success=build
-      - check-success=test
+      - check-success=Selenium TestNG CI with Security Scanning / build-and-test
       - "#approved-reviews-by>=1"
       - "#changes-requested-reviews-by=0"
     actions:
@@ -16,8 +15,7 @@ pull_request_rules:
   - name: automatic merge to develop
     conditions:
       - base=develop
-      - check-success=build
-      - check-success=test
+      - check-success=Selenium TestNG CI with Security Scanning / build-and-test
       # Approval requirement completely removed for testing Mergify
     actions:
       merge:
@@ -28,8 +26,7 @@ pull_request_rules:
     conditions:
       - base=main
       - label=bugfix
-      - check-success=build
-      - check-success=test
+      - check-success=Selenium TestNG CI with Security Scanning / build-and-test
       - "#approved-reviews-by>=1"
     actions:
       merge:
@@ -74,5 +71,4 @@ pull_request_rules:
 queue_rules:
   - name: default
     conditions:
-      - check-success=build
-      - check-success=test
+      - check-success=Selenium TestNG CI with Security Scanning / build-and-test
